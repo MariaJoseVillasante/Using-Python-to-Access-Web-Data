@@ -1,0 +1,28 @@
+import re
+hand = open("regex_sum_1332484.txt")
+numlist = list()
+for line in hand:
+    line = line.rstrip()
+    stuff = re.findall("([0-9]+)", line)
+    if len(stuff) == 0 : continue
+    #print(stuff)
+    #num = float(stuff)
+    #print(num)
+    for i in range(len(stuff)):
+        num = int(stuff[i])
+        numlist.append(num)
+
+#print(max(numlist))
+print('sum:', sum(numlist), 'count:', len(numlist))
+
+
+
+
+'''
+Short version: List Comprehension
+'''
+import re
+x = [len(re.findall('([0-9]+)',line)) for line in open("regex_sum_1332484.txt")]
+
+hand = open("regex_sum_1332484.txt")
+print('sum:', sum([int(x) for x in re.findall('([0-9]+)',hand.read())]), 'count:', sum(x))
